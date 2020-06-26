@@ -9,6 +9,8 @@ const cookieParser = require("./middlewares/cookie-parser");
 const cors = require('cors');
 const app = express();
 
+const PORT = process.env.PORT || 8080;
+
 let fileUrl = path.join(__dirname, "users.json");
 app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
@@ -163,6 +165,6 @@ app.delete("/users", async (req, res) => {
   });
 });
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
   console.log("Servidor iniciado en el puerto 8080");
 });
